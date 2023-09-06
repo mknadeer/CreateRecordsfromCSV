@@ -1,4 +1,4 @@
-public with sharing class shiftUploaderController {
+public with sharing class csvUploaderController {
   @AuraEnabled
   public static void createRecordsFromCSV(Id fileId) {
     try {
