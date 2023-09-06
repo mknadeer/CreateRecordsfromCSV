@@ -1,5 +1,5 @@
 
-public with sharing class CSVShiftProcessingQueueable implements Queueable {
+public with sharing class CSVProcessingQueueable implements Queueable {
     private List<Custom_Record__c> recordsToInsert;
 
     public CSVShiftProcessingQueueable(List<Custom_Record__c> recordsToInsert) {
