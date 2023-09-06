@@ -24,7 +24,7 @@ public with sharing class csvUploaderController {
                 record.recordTypeId = RecordTypeId;
                 record.Custom_field__1__c = tokens[j];
                 record.Custom_field__2__c = tokens[j];
-                Custom_Record__c.add(record);
+                RecordToInsert.add(record);
             }
         }
       }
