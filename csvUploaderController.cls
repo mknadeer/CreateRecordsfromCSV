@@ -15,18 +15,22 @@ public with sharing class csvUploaderController {
         List<String> rows = csvData.split('\n');
         Id RecordTypeId = Schema.SObjectType.Custom_Record__c.getRecordTypeInfosByDeveloperName().get('Custom').getRecordTypeId();
 
-        String[] headerTokens = rows[0].split(',');
+        // Iterate through each CSV line
+            for (String row : rows) {
+                // Split the CSV line into fields
+                List<String> tokens = row.split(',');
 
-        for (Integer i = 2; i < rows.size(); i++) {
-            String[] tokens = rows[i].split(',');
-            for (Integer j = 1; j < (tokens.size()); j += 2) {
-                Custom_Record__c record = new Custom_Record__c();
-                record.recordTypeId = RecordTypeId;
-                record.Custom_field__1__c = tokens[j];
-                record.Custom_field__2__c = tokens[j];
-                RecordToInsert.add(record);
+                // Ensure the line has the expected number of fields
+                if (tokens.size() == 2) {
+                    Custom_Object__c record = new Custom_Object__c();
+                    record.recordTypeId = RecordTypeId;
+                    record.Custom_field__1__c = tokens[0];
+                    record.Custom_field__2__c = tokens[1];
+                    RecordToInsert.add(record);
+                } else {
+                    // Handle invalid CSV lines or log an error
+                }
             }
-        }
       }
         recordsCreated = Custom_Record__c.size();
         system.debug('recordsCreated ->' + recordsCreated);
