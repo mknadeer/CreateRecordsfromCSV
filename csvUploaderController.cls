@@ -19,7 +19,7 @@ public with sharing class csvUploaderController {
 
         for (Integer i = 2; i < rows.size(); i++) {
             String[] tokens = rows[i].split(',');
-            for (Integer j = 1; j < (tokens.size()-1); j += 2) {
+            for (Integer j = 1; j < (tokens.size()); j += 2) {
                 Custom_Record__c record = new Custom_Record__c();
                 record.recordTypeId = RecordTypeId;
                 record.Custom_field__1__c = tokens[j];
