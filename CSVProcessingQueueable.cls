@@ -2,7 +2,7 @@
 public with sharing class CSVProcessingQueueable implements Queueable {
     private List<Custom_Record__c> recordsToInsert;
 
-    public CSVShiftProcessingQueueable(List<Custom_Record__c> recordsToInsert) {
+    public CSVProcessingQueueable(List<Custom_Record__c> recordsToInsert) {
         this.recordsToInsert = recordsToInsert;
     }
 
